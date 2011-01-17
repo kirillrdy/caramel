@@ -1,0 +1,11 @@
+Caramel
+
+lets you do things like
+
+instead of 
+if not @people.empty?
+do
+if  @people.are_not.empty?
+
+string.is_not.blank?
+person.not.stupid?
