@@ -6,11 +6,11 @@ Gem::Specification.new do |s|
   s.name        = "caramel"
   s.version     = Caramel::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
+  s.authors     = ["Kirill Radzikhovskyy"]
+  s.email       = ["kirillrdy@gmail.com"]
   s.homepage    = "http://rubygems.org/gems/caramel"
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Adds sweetness to Ruby}
+  s.description = %q{Adds more sweetness to Ruby}
 
   s.rubyforge_project = "caramel"
 
