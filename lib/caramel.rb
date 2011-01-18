@@ -1,6 +1,6 @@
 module Caramel
 
-  class ProxyWrapper
+  class ObjectModifierWrapper
     attr_accessor :parent
 
     def initialize parent
@@ -8,22 +8,24 @@ module Caramel
     end
 
     def method_missing(*args)
-      @result = parent.send(*args)
+      @result = @parent.send(*args)
       return modify
     end
 
     def modify
+      puts "we are here"
       @result
     end
 
   end
 
   # Intentionaly left blank
-  class IsWrapper < ProxyWrapper
+  class IsWrapper < ObjectModifierWrapper
   end
 
-  class NotWrapper < ProxyWrapper
+  class NotWrapper < ObjectModifierWrapper
     def modify
+      puts "modifing #{@result} to #{!@result}"
       !@result
     end
   end
