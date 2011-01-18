@@ -9,10 +9,10 @@ module Caramel
 
     def method_missing(*args)
       @result = @parent.send(*args)
-      return modify
+      return alter
     end
 
-    def modify
+    def alter
       puts "we are here"
       @result
     end
@@ -24,7 +24,7 @@ module Caramel
   end
 
   class NotWrapper < ObjectModifierWrapper
-    def modify
+    def alter
       puts "modifing #{@result} to #{!@result}"
       !@result
     end
