@@ -1,6 +1,6 @@
 module Caramel
 
-  class ObjectModifierWrapper
+  class ObjectModifierWrapper < BasicObject
     attr_accessor :parent
 
     def initialize parent
