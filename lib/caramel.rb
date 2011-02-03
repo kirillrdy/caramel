@@ -13,7 +13,6 @@ module Caramel
     end
 
     def alter
-      puts "we are here"
       @result
     end
 
@@ -25,8 +24,7 @@ module Caramel
 
   class NotWrapper < ObjectModifierWrapper
     def alter
-      puts "modifing #{@result} to #{!@result}"
-      !@result
+      @result == true ? false : true
     end
   end
 
