@@ -18,13 +18,32 @@ module Caramel
 
   end
 
+
+
+
+class NilModifierWrapper < ObjectModifierWrapper
+
+    def method_missing(*args)
+      if @parent != nil
+        @result = @parent.send(*args)
+      else
+        #parent is nil
+        @result = nil
+      end
+      return alter
+    end
+
+end
+
+
+
   # Intentionaly left blank
   class IsWrapper < ObjectModifierWrapper
   end
 
   class NotWrapper < ObjectModifierWrapper
     def alter
-      @result == true ? false : true
+      !@result
     end
   end
 
@@ -50,6 +69,16 @@ class Object
       Caramel::NotWrapper.new self
     end
   end
+
+  # if person.is 'John'
+  def and(*args)
+    if args.first
+      self == args.first
+    else
+      Caramel::NilModifierWrapper.new self
+    end
+  end
+
 
   alias :is_not :not
   alias :are_not :not
