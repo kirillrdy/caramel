@@ -1,6 +1,9 @@
 Caramel
 =======
 
+To sweet up your ruby code
+
+
     irb(main):002:0> require './lib/caramel'
     => true
 
@@ -23,6 +26,9 @@ Caramel
     => false
 
     irb(main):009:0> 'banana'.is_not.in shopping_list
+    => true
+
+    irb(main):009:0> 'banana'.is.not.in shopping_list
     => true
 
     irb(main):010:0> 'banana'.is.in shopping_list
