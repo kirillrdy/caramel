@@ -6,9 +6,9 @@ module Caramel
     def initialize parent
       @parent = parent
     end
-
-    def method_missing(*args)
-      @result = @parent.send(*args)
+    
+    def method_missing(*args, &block)
+      @result = @parent.send(*args, &block)
       return alter
     end
 
@@ -22,10 +22,10 @@ module Caramel
 
 
 class NilModifierWrapper < ObjectModifierWrapper
-
-    def method_missing(*args)
+  
+    def method_missing(*args, &block)
       if @parent != nil
-        @result = @parent.send(*args)
+        @result = @parent.send(*args, &block)
       else
         #parent is nil
         @result = nil
